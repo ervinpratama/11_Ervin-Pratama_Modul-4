@@ -2,15 +2,21 @@
   "posts": [
     {
       "userId": 1,
-      "id": 1647313124528,
-      "title": "Politeknik Negeri Malang",
-      "body": "Politeknik Negeri Malang (Polinema) awalnya bernama Program Pendidikan Diploma Bidang Teknik, Universitas Brawijaya. Polinema dibuka berdasarkan Surat Keputusan Dirjen DIKTI, MENDIKBUD No.03/DJ/Kep/1979 yang didirikan oleh Pemerintah Indonesia melalui dana Bank Dunia. Pada tahun 1982, Polinema hanya membuka empat jurusan yakni Teknik Elektronika, Teknik Listrik, Teknik Mesin, dan Teknik Sipil.\n\nSaat ini, sudah lebih dari 50 program studi yang dibagi menjadi dua jenjang pendidikan, yaitu program Diploma (D3) dan juga Sarjana Sain Terapan (SST). Bahkan, program studi Teknik Elektro juga menyediakan program pendidikan Magister Terapan yang setara dengan program Magister (S2) dengan masa pendidikan 2 tahun atau 4 semester. Untuk informasi lebih lanjut dari kampus ini, kita simak aja yuk profil lengkapnya berikut ini!"
+      "id": 1650004466701,
+      "title": "Pantai",
+      "body": "Pantai Gatra"
     },
     {
       "userId": 1,
-      "id": 1647314194673,
+      "id": 1650005140255,
       "title": "ervin",
       "body": "pratama"
+    },
+    {
+      "userId": 1,
+      "id": 1650005967802,
+      "title": "Poltek",
+      "body": "Politeknik Negeri Malang"
     }
   ],
   "comments": [],

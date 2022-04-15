@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './BlogPostMahasiswa.css';
 import PostMahasiswa from "../../component/BlogPost/PostMahasiswa";
+import API from "../../servicesMahasiswa";
 
 class BlogPostMahasiswa extends Component {
     state = {               
@@ -61,7 +62,6 @@ class BlogPostMahasiswa extends Component {
                 this.ambilDataDariServerAPI();              
             });
     }
-
     render() {
         return(
             <div className="post-mahasiswa">

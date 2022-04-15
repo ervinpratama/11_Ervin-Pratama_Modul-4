@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './BlogPost.css';
 import Post from "../../component/BlogPost/Post";
+import API from "../../services";
 
 class BlogPost extends Component {
     state = {               // komponen state dari React untuk statefull widget
@@ -14,11 +15,9 @@ class BlogPost extends Component {
     }
 
     ambilDataDariServerAPI = () => {        // Fungsi untuk mengambil data daro API dengann penambahan sort dan order
-        fetch(`http://localhost:3001/posts?_sort=id&_order=desc`)   // Penambahan sort dan order berdasarkan parameter
-        .then(response => response.json())           // Ubah response data dari URL API menjadi sebuah data json
-        .then(jsonHasilAmbilDariAPI => {            // Data json hasil ambil dari API kita masukkan ke dalam listArtikel pada state
+        API.getNewsBlog().then(result => {
             this.setState({
-                listArtikel: jsonHasilAmbilDariAPI
+                listArtikel: result
             })
         })
     }
@@ -29,12 +28,11 @@ class BlogPost extends Component {
     }
 
     handleHapusArtikel = (data) => {  // Fungsi untuk mengecek button action hapus data
-        fetch(`http://localhost:3001/posts/${data}`, {method: 'DELETE'}) // Alamat URL API yang ingin kita HAPUS datanya
-        .then(res=> {  // Ketika proses hapus berhasil, maka ambil data dari server API Lokal
-            this.ambilDataDariServerAPI()
-        })
+        API.deleteNewsBlog(data).then((response) => {
+            this.ambilDataDariServerAPI();
+        });
     }
-
+    
     handleTambahArtikel = (event) => {                              // Fungsi untuk meng-handle form tambah data artikel
         let formInsertArtikel = {...this.state.insertArtikel};      // Clonning data state insertArtikel ke dalam variabel formInsertArtikel
         let timestamp = new Date().getTime();                       // Digunakan untuk menyimpan waktu (sebagai ID artikel) 
@@ -46,17 +44,10 @@ class BlogPost extends Component {
     }
 
     handleTombolSimpan = () => {                            // Fungsi untuk meng-handle tombol simpan
-        fetch('http://localhost:3001/posts', {              // Method POST untuk input/insert data
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(this.state.insertArtikel)      // Kirimkan ke body request untuk data artikel yang akan ditambahkan (insert)
-        })
-            .then( (Response) => {
-                this.ambilDataDariServerAPI();              // Reload / refresh data
-            })
+        API.postNewsBlog(this.state.insertArtikel)
+            .then((response)=> {
+                this.ambilDataDariServerAPI();              // reload / refresh data
+            });
     }
 
     render() {
